@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liora Advertising</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #0abcf9;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #007bb5;
+        }
+        nav a {
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #005f8a;
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .service {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #0abcf9;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Liora Advertising</h1>
+    </header>
+    <nav>
+        <a href="#primary">Primary Services</a>
+        <a href="#secondary">Secondary Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="primary">
+            <h2>Primary Services</h2>
+            <div class="services">
+                <div class="service">Vehicle Branding</div>
+                <div class="service">Floor Sticker Branding</div>
+                <div class="service">Wall Sticker Branding</div>
+                <div class="service">Exhibition Stands</div>
+            </div>
+        </section>
+        <section id="secondary">
+            <h2>Secondary Services</h2>
+            <div class="services">
+                <div class="service">Pop Up Stand</div>
+                <div class="service">Roll Up Stand</div>
+                <div class="service">Flex or Banner Printing</div>
+                <div class="service">Foamboard</div>
+                <div class="service">Acrylic Holder</div>
+                <div class="service">Light Frames</div>
+                <div class="service">External 3D Signs</div>
+                <div class="service">Internal Signs</div>
+                <div class="service">Acrylic Signs</div>
+                <div class="service">Way Finding Signs</div>
+                <div class="service">Product Display Stand</div>
+                <div class="service">Digital Display Banners</div>
+                <div class="service">Posters</div>
+                <div class="service">Flex Face Sign</div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: contact@lioraadvertising.com</p>
+            <p>Phone: +123-456-7890</p>
+        </section>
+    </div>
+    <footer>
+        &copy; 2025 Liora Advertising. All rights reserved.
+    </footer>
+</body>
+</html>
