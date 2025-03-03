@@ -22,7 +22,7 @@ body {
 }
 
 header {
-    background-color: #0000FF;
+    background-color: #3674B5;
     padding: 1rem;
     position: fixed;
     width: 100%;
@@ -68,7 +68,7 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color:  #4B7BF5;
+    background-color:  #578FCA;
     color: #fff;
     text-align: start;
     padding: 0 0rem;
