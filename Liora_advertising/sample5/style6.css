@@ -24,7 +24,7 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: #3674B5;
+    background-color: #1C1C1C;
     padding: 1rem;
     position: fixed;
     width: 100%;
@@ -80,7 +80,7 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color: #578FCA;
+    background-color:#fff;
     color: #fff;
     padding: 6rem 2rem 2rem;
 }
@@ -106,6 +106,7 @@ nav {
     margin-bottom: 1rem;
     text-align: start;
     padding-left: 2rem;
+    color:#000
 }
 
 .hero p {
@@ -114,6 +115,7 @@ nav {
     margin-bottom: 3rem;
     text-align: start;
     padding-left: 2rem;
+    color:#000
 }
 
 .btn {
