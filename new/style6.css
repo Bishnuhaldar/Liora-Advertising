@@ -24,7 +24,8 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: transparent; /* Remove background color */
+    /* background-color: whitesmoke;  */
+    background-color: transparent; 
     position: absolute; /* Position it on top of the hero */
     top: 0;
     left: 0;
@@ -51,6 +52,11 @@ nav {
     letter-spacing: 1px;
 }
 
+.logo img {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -61,13 +67,21 @@ nav {
 }
 
 .nav-links a {
-    color:white; /* Keep the text white */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add slight shadow for better readability */
+    color: black; /* Change the text color */
+    font-size: 1.2rem; /* Increase the font size */
+    padding: 0.5rem 1.5rem; /* Add padding for better spacing */
+    text-decoration: none; /* Remove underline */
+    border: 2px solid transparent; /* Add border for hover effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    font-weight: 600;
 }
 
-
 .nav-links a:hover {
-    text-decoration: underline;
+    background-color: var(--primary); /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    border: 2px solid var(--primary); /* Add border on hover */
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 /* Mobile Navigation */
@@ -84,8 +98,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: url('soft-vintage-gradient-blur-background-with-pastel-colored-well-use-as-studio-room-product-presentation-banner.jpg') no-repeat center center/cover;
-    /* background:black; */
+    background: url('3d-geometric-abstract-background.jpg') no-repeat center center/cover; */
+    /* background:linear-gradient(135deg, #1B2735, #415A77); */
     color: #fff;
     padding: 8rem 2rem 2rem; /* Increased padding to account for navbar */
 }
@@ -112,7 +126,7 @@ nav {
     margin-bottom: 1rem;
     text-align: start;
     padding-left: 2rem;
-    /* color:black */
+    color:black
 }
 
 .hero p {
@@ -121,7 +135,7 @@ nav {
     margin-bottom: 3rem;
     text-align: start;
     padding-left: 2rem;
-    /* color:black */
+    color:black
 
 }
 
@@ -869,31 +883,64 @@ footer {
     }
 }
 
-/* From Uiverse.io by Carlos-vargs */ 
-.button {
+/* From Uiverse.io by vikramsinghnegi */ 
+button.youtube-button {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #ff0000 0%, #ff5050 100%);
+    color: white;
+    padding: 0.8em 1.2em;
     display: flex;
-    justify-content: center;
-    color: #fff;
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-    background: linear-gradient(30deg, rgb(255, 130, 0) 20%, rgb(255, 38, 0) 80%);
-    transition: all 0.3s ease-in-out 0s;
-    box-shadow: rgba(193, 244, 246, 0.698) 0px 0px 0px 0px;
-    animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running pulse;
     align-items: center;
-    border: 0;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
   }
   
-  .button:is(:hover, :focus) {
-    transform: scale(1.2);
+  button.youtube-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   }
   
-  @keyframes pulse {
-    100% {
-      box-shadow: 0 0 0 45px rgba(193,244,246,0);
-    }
+  button.youtube-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   }
   
+  button.youtube-button span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  }
   
+  button.youtube-button svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
   
+  button.youtube-button .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+  
+  button.youtube-button:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  button.youtube-button:hover svg {
+    transform: rotate(45deg);
+  }
+  
+
+
