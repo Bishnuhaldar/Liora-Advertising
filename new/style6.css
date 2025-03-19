@@ -941,6 +941,21 @@ button.youtube-button {
   button.youtube-button:hover svg {
     transform: rotate(45deg);
   }
-  
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.button-container .btn,
+.button-container .youtube-button {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
 
 
