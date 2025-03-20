@@ -1,34 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // ===== SMOOTH SCROLLING FOR NAVIGATION =====
-    // Get all navigation links
-    const navLinks = document.querySelectorAll('.nav-links a');
+// Function to handle popups
+function handlePopup(previewId, popupId, closeClass) {
+    const servicePreview = document.getElementById(previewId);
+    const popupOverlay = document.getElementById(popupId);
+    const closeButton = popupOverlay.querySelector(closeClass);
     
-    // Add click event listener to each link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Prevent default anchor behavior
-            e.preventDefault();
-            
-            // Get the target section id from the href attribute
-            const targetId = this.getAttribute('href');
-            
-            // Make sure the target exists
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // Smooth scroll to the target section
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Update URL without page reload (optional)
-                history.pushState(null, null, targetId);
-            }
-        });
+    servicePreview.addEventListener('click', () => {
+        popupOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
+    
+    closeButton.addEventListener('click', () => {
+        popupOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
-    // ===== YOUTUBE POPUP FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing code for YouTube popup
     const youtubeButton = document.getElementById('youtube-button');
     const videoPopup = document.getElementById('video-popup');
     const popupClose = document.getElementById('popup-close');
@@ -67,28 +62,34 @@ document.addEventListener('DOMContentLoaded', function() {
         youtubeIframe.src = ''; // Stop the video
         document.body.style.overflow = ''; // Re-enable scrolling
     }
+    
+    // NEW CODE: Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Update URL without page reload
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
 });
 
-// ===== SERVICE POPUP HANDLING FUNCTION =====
-function handlePopup(previewId, popupId, closeClass) {
-    const servicePreview = document.getElementById(previewId);
-    const popupOverlay = document.getElementById(popupId);
-    const closeButton = popupOverlay.querySelector(closeClass);
-    
-    servicePreview.addEventListener('click', () => {
-        popupOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-    
-    closeButton.addEventListener('click', () => {
-        popupOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-    
-    popupOverlay.addEventListener('click', (e) => {
-        if (e.target === popupOverlay) {
-            popupOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-}
+// Apply to multiple elements
+handlePopup('vehicle-branding-preview', 'vehicle-branding-popup', '.close-popup');
+handlePopup('floor-sticker-branding-preview', 'floor-sticker-branding-popup', '.close-popup');
+handlePopup('wall-sticker-branding-preview', 'wall-sticker-branding-popup', '.close-popup');
+handlePopup('exhibition-stands-preview', 'exhibition-stands-popup', '.close-popup');
+handlePopup('pop-up-&-roll-up-stands-preview', 'pop-up-&-roll-up-stands-popup', '.close-popup');
+handlePopup('signage-solutions-preview', 'signage-solutions-popup', '.close-popup');
