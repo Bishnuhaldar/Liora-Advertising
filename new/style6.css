@@ -16,33 +16,124 @@
 }
 
 body {
-    background-color: var(--light);
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow: hidden;
     color: var(--dark);
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
 }
 
+.slider {
+    display: flex;
+    position: absolute;
+    width: calc(100vw * 10); /* Doubling slides for infinite effect */
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 5%;
+    color: white;
+    text-align: center;
+}
+
+.slide-content h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.slide-content p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Header & Navigation */
 header {
-    background-color: transparent; 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 1rem;
-    box-shadow: none;
+    background: rgb(195, 214, 251);
+    transition: height 0.3s ease, padding 0.3s ease;
+    height: 80px; /* Adjust initial height to match logo height */
+    padding: 0 1rem; /* Adjust padding if needed */
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Ensure space between logo and nav links */
+}
+
+header.shrink {
+    height: 56px; /* Shrink height to 70% of initial height */
+    padding: 0 1rem; /* Adjust padding if needed */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align logo to the left */
+}
+
+header .logo img {
+    height: 100%; /* Make logo height 100% of the header height */
+    max-height: 60px; /* Set a max height for the logo */
+}
+
+header.shrink .logo img {
+    max-height: 42px; /* Adjust logo size when header shrinks */
+}
+
+header .nav-links {
+    display: flex;
+    list-style: none;
+    transition: all 0.3s ease;
+    margin-left: auto; /* Align nav links to the right */
+}
+
+header .nav-links li {
+    margin-left: clamp(1rem, 2vw, 2rem);
+}
+
+header .nav-links a {
+    font-size: 1.2rem; /* Adjust font size of nav links */
+    padding: 0.5rem; /* Adjust padding of nav links */
+    text-transform: uppercase;
+}
+
+header.shrink .nav-links a {
+    font-size: 1rem; /* Adjust font size of nav links when header shrinks */
+    padding: 0.3rem; /* Adjust padding of nav links when header shrinks */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
 .logo {
@@ -54,8 +145,8 @@ nav {
 }
 
 .logo img {
-    width: clamp(100px, 15vw, 150px);
-    height: auto;
+    height: 100%; /* Make logo height 100% of the header height */
+    max-height: 60px; /* Set a max height for the logo */
 }
 
 .nav-links {
