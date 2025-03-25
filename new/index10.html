@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smooth Infinite Image Slider</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            position: absolute;
+            width: calc(100vw * 10); /* Doubling slides for infinite effect */
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 5%;
+            color: white;
+            text-align: center;
+        }
+
+        .slide-content h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .slide-content p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slide">
+            <img src="img/exhibition-stand-1.jpg" alt="Slide 1">
+            <div class="slide-content">
+                <h2>Exhibition Stand 1</h2>
+                <p>Innovative designs for modern exhibits</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="img/exhibition-stand-2.jpg" alt="Slide 2">
+            <div class="slide-content">
+                <h2>Exhibition Stand 2</h2>
+                <p>Creative solutions for your brand</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="img/exhibition-stand-3.jpg" alt="Slide 3">
+            <div class="slide-content">
+                <h2>Exhibition Stand 3</h2>
+                <p>Experience the future of exhibitions</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="img/exhibition-stand-1.jpg" alt="Slide 4">
+            <div class="slide-content">
+                <h2>Exhibition Stand 4</h2>
+                <p>Custom-built for maximum impact</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="img/exhibition-stand-2.jpg" alt="Slide 5">
+            <div class="slide-content">
+                <h2>Exhibition Stand 5</h2>
+                <p>Stand out with unique designs</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const slideWidth = window.innerWidth;
+        let currentPosition = 0;
+
+        function moveSlider() {
+            currentPosition += slideWidth;
+            slider.style.transition = 'transform 1s ease-in-out';
+            slider.style.transform = `translateX(-${currentPosition}px)`;
+            
+            // Reset position for infinite loop effect
+            setTimeout(() => {
+                if (currentPosition >= slideWidth * (slides.length / 2)) {
+                    slider.style.transition = 'none';
+                    currentPosition = 0;
+                    slider.style.transform = `translateX(0px)`;
+                }
+            }, 1000);
+        }
+
+        // Auto-slide every 3 seconds
+        setInterval(moveSlider, 3000);
+    </script>
+</body>
+</html>
