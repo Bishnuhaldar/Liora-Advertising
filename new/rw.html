@@ -3,228 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Button with Enhanced Close Button</title>
+    <title>Hero Page with Image Slider</title>
     <style>
-        /* Your existing CSS */
-        button.youtube-button {
-            font-family: inherit;
-            font-size: 18px;
-            background: linear-gradient(to bottom, #ff0000 0%, #ff5050 100%);
-            color: white;
-            padding: 0.8em 1.2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            border-radius: 25px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-       
-        button.youtube-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-        }
-       
-        button.youtube-button:active {
-            transform: scale(0.95);
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-       
-        button.youtube-button span {
-            display: block;
-            margin-left: 0.4em;
-            transition: all 0.3s;
-        }
-       
-        button.youtube-button svg {
-            width: 18px;
-            height: 18px;
-            fill: white;
-            transition: all 0.3s;
-        }
-       
-        button.youtube-button .svg-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin-right: 0.5em;
-            transition: all 0.3s;
-        }
-       
-        button.youtube-button:hover .svg-wrapper {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-       
-        button.youtube-button:hover svg {
-            transform: rotate(45deg);
-        }
-       
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-       
-        .button-container .btn,
-        .button-container .youtube-button {
-            flex: 1;
-            margin: 0 10px;
-            text-align: center;
-        }
- 
-        /* Enhanced CSS for the popup */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            backdrop-filter: blur(5px);
-        }
- 
-        .popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
- 
-        .popup-content {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; overflow-x: hidden; }
+        .hero-slider {
+            width: 100vw;
+            height: 100vh;
             position: relative;
-            width: 60%;
-            max-width: 1000px;
-            aspect-ratio: 16/9;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
             overflow: hidden;
-            transform: scale(0.9);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
- 
-        .popup-overlay.active .popup-content {
-            transform: scale(1);
-        }
- 
-        /* Dramatically improved close button */
-        .popup-close {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            width: 30px;
-            height: 30px;
+        .slider-wrapper {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1001;
-        }
- 
-        .popup-close:before,
-        .popup-close:after {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 3px;
-            background-color: white;
-            border-radius: 2px;
-        }
- 
-        .popup-close:before {
-            transform: rotate(45deg);
-        }
- 
-        .popup-close:after {
-            transform: rotate(-45deg);
-        }
- 
-        .popup-content iframe {
-            width: 100%;
+            width: 500%; /* 5 images */
             height: 100%;
-            border: none;
-            display: block;
+            animation: slide 20s ease-in-out infinite;
+        }
+        .slide {
+            flex: 1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide-content {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+        .slide-content h1 { font-size: 3rem; font-weight: bold; }
+        .slide-content p { font-size: 1.5rem; }
+        
+        @keyframes slide {
+            0%, 20% { transform: translateX(0%); }
+            25%, 45% { transform: translateX(-20%); }
+            50%, 70% { transform: translateX(-40%); }
+            75%, 95% { transform: translateX(-60%); }
+            100% { transform: translateX(-80%); }
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <button class="youtube-button" id="youtube-button">
-            <div class="svg-wrapper-1">
-                <div class="svg-wrapper">
-                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
-                    </svg>
+    <div class="hero-slider">
+        <div class="slider-wrapper">
+            <div class="slide" style="background-image: url('img/exhibition-stand-2.jpg');">
+                <div class="slide-content">
+                    <h1>Welcome to Our World</h1>
+                    <p>Experience innovation like never before</p>
                 </div>
             </div>
-            <span>Watch on YouTube</span>
-        </button>
-    </div>
- 
-    <!-- Enhanced Popup Container -->
-    <div class="popup-overlay" id="video-popup">
-        <div class="popup-content">
-            <div class="popup-close" id="popup-close"></div>
-            <iframe id="youtube-iframe"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <div class="slide" style="background-image: url('img/exhibition-stand-3.jpg');">
+                <div class="slide-content">
+                    <h1>Explore the Possibilities</h1>
+                    <p>Unleash your potential with us</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/Warping-Cars-1.jpg');">
+                <div class="slide-content">
+                    <h1>Innovate and Inspire</h1>
+                    <p>Pioneering the future together</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/exhibition-stand-1.jpg');">
+                <div class="slide-content">
+                    <h1>Discover New Horizons</h1>
+                    <p>Transforming dreams into reality</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/exhibition-stand-2.jpg');">
+                <div class="slide-content">
+                    <h1>Join the Revolution</h1>
+                    <p>Be part of something extraordinary</p>
+                </div>
+            </div>
         </div>
     </div>
- 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const youtubeButton = document.getElementById('youtube-button');
-            const videoPopup = document.getElementById('video-popup');
-            const popupClose = document.getElementById('popup-close');
-            const youtubeIframe = document.getElementById('youtube-iframe');
-            const videoId = 'z8IGZBukSxo'; // Extracted from your URL
-           
-            // Open popup when button is clicked
-            youtubeButton.addEventListener('click', function() {
-                // Set the YouTube embed URL (with autoplay enabled)
-                youtubeIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&si=u1QRAHTFRSc7OBg2&rel=0&modestbranding=1`;
-                videoPopup.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling while popup is open
-            });
-           
-            // Close popup when close button is clicked
-            popupClose.addEventListener('click', function() {
-                closePopup();
-            });
-           
-            // Close popup when clicking outside the video
-            videoPopup.addEventListener('click', function(e) {
-                if (e.target === videoPopup) {
-                    closePopup();
-                }
-            });
-           
-            // Close popup when ESC key is pressed
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && videoPopup.classList.contains('active')) {
-                    closePopup();
-                }
-            });
-           
-            function closePopup() {
-                videoPopup.classList.remove('active');
-                youtubeIframe.src = ''; // Stop the video
-                document.body.style.overflow = ''; // Re-enable scrolling
-            }
-        });
-    </script>
 </body>
 </html>
