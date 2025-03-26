@@ -94,30 +94,30 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('shrink');
         }
     });
-
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const slideWidth = window.innerWidth;
-    let currentPosition = 0;
-
-    function moveSlider() {
-        currentPosition += slideWidth;
-        slider.style.transition = 'transform 1s ease-in-out';
-        slider.style.transform = `translateX(-${currentPosition}px)`;
-
-        // Reset position for infinite loop effect
-        setTimeout(() => {
-            if (currentPosition >= slideWidth * (slides.length / 2)) {
-                slider.style.transition = 'none';
-                currentPosition = 0;
-                slider.style.transform = `translateX(0px)`;
-            }
-        }, 1000);
-    }
-
-    // Auto-slide every 3 seconds
-    setInterval(moveSlider, 3000);
 });
+
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const slideWidth = window.innerWidth;
+let currentPosition = 0;
+
+function moveSlider() {
+    currentPosition += slideWidth;
+    slider.style.transition = 'transform 1s ease-in-out';
+    slider.style.transform = `translateX(-${currentPosition}px)`;
+    
+    // Reset position for infinite loop effect
+    setTimeout(() => {
+        if (currentPosition >= slideWidth * (slides.length / 2)) {
+            slider.style.transition = 'none';
+            currentPosition = 0;
+            slider.style.transform = `translateX(0px)`;
+        }
+    }, 1000);
+}
+
+// Auto-slide every 3 seconds
+setInterval(moveSlider, 3000);
 
 // Apply to multiple elements
 handlePopup('vehicle-branding-preview', 'vehicle-branding-popup', '.close-popup');
