@@ -978,8 +978,7 @@ button.youtube-button:hover svg {
     bottom: 0;
 }
 
-/* Improved Mobile Navigation */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
     .menu-toggle {
         display: block;
     }
@@ -1030,7 +1029,6 @@ button.youtube-button:hover svg {
     }
 }
 
-/* Extra Small Devices */
 @media (max-width: 480px) {
     .service-list,
     .image-gallery {
@@ -1072,7 +1070,6 @@ button.youtube-button:hover svg {
     }
 }
 
-/* Medium Devices */
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero h1 {
         font-size: 2.5rem;
@@ -1084,7 +1081,6 @@ button.youtube-button:hover svg {
     }
 }
 
-/* Large Devices */
 @media (min-width: 1025px) {
     .container {
         padding: 0 2rem;
@@ -1099,7 +1095,6 @@ button.youtube-button:hover svg {
     }
 }
 
-/* Fix for YouTube popup on mobile */
 @media (max-width: 767px) {
     .popup-content {
         width: 95%;
@@ -1110,7 +1105,7 @@ button.youtube-button:hover svg {
         top: -40px;
         right: 0;
     }
-}
+} */
 
 .slider {
     display: flex;
