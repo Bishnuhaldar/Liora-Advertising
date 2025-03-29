@@ -21,8 +21,8 @@ section {
 
 body {
     /* background-color: var(--light); */
-    background-color: rgba(80, 175, 81, 0.3);
-    color: var(--dark);
+    background-color: rgba(255, 255, 255, 0.984);
+    /* color: var(--dark); */
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
@@ -35,9 +35,9 @@ header {
     left: 0;
     width: 100%;
     z-index: 100;
-    background: white;
+    background:white;
     transition: height 0.5s ease-in-out, padding 0.5s ease-in-out; /* Increased duration and smoother easing */
-    height: 80px; /* Adjust initial height to match logo height */
+    height: 60px; /* Adjust initial height to match logo height */
     padding: 0 1rem; /* Adjust padding if needed */
     display: flex;
     align-items: center; /* Center align items vertically */
@@ -56,8 +56,8 @@ header .logo {
 }
 
 header .logo img {
-    height: 100%; /* Make logo height 100% of the header height */
-    max-height: 60px; /* Set a max height for the logo */
+    height: 80%; /* Make logo height 100% of the header height */
+    max-height: 40px; /* Set a max height for the logo */
     transition: max-height 0.5s ease-in-out; /* Increased duration and smoother easing */
 }
 
@@ -104,8 +104,8 @@ nav {
 }
 
 .logo img {
-    height: 100%; /* Make logo height 100% of the header height */
-    max-height: 60px; /* Set a max height for the logo */
+    height: 80%; /* Make logo height 100% of the header height */
+    max-height: 40px; /* Set a max height for the logo */
 }
 
 .nav-links {
@@ -120,7 +120,7 @@ nav {
 
 .nav-links a {
     color: black;
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    font-size: clamp(0.8rem, 1.2vw, 1rem); /* Reduced font size */
     text-decoration: none;
     border: 2px solid transparent;
     transition: all 0.3s ease;
@@ -128,7 +128,6 @@ nav {
     font-weight: 600;
     position: relative;
 }
-
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -1155,11 +1154,7 @@ button.youtube-button:hover svg {
     padding: 40px 20px;
     text-align: center;
 }
-/* .clients-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #333;
-} */
+
 .client-logos-container {
     padding: 20px;
     border: 1px solid #ddd;
@@ -1182,80 +1177,19 @@ button.youtube-button:hover svg {
     max-width: 100%;
     max-height: 100px;
     object-fit: contain;
-    transition: filter 0.3s ease;
+    transition: all 0.5s ease;
+    /* filter: grayscale(100%); */
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 .client-logo img:hover {
+    transform: scale(1.1) rotateX(10deg) rotateY(10deg);
     filter: grayscale(0%);
+    z-index: 10;
 }
 
 
-#vision-mission-values {
-    padding: 60px 0;
-    background-color: #f9f9f9;
-}
 
-#vision-mission-values .section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-#vision-mission-values .vmv-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#vision-mission-values .vmv-item {
-    flex: 1;
-    margin: 20px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    text-align: center;
-    color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#vision-mission-values .vmv-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-#vision-mission-values .vmv-item h3 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #031bf6;
-    font-weight: bold;
-}
-
-#vision-mission-values .vmv-item p,
-#vision-mission-values .vmv-item ul {
-    color: #000000;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-#vision-mission-values .vmv-item ul {
-    list-style: none;
-    padding: 0;
-}
-
-#vision-mission-values .vmv-item ul li {
-    margin-bottom: 10px;
-}
-
-/* Specific styles for each box */
-#vision-mission-values .vmv-item.vision {
-    background: white; /* Blue gradient */
-}
-
-#vision-mission-values .vmv-item.mission {
-    background: white; /* Blue gradient */
-}
-
-#vision-mission-values .vmv-item.values {
-    background: white; /* Blue gradient */
-}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; overflow-x: hidden; }
@@ -1269,7 +1203,7 @@ button.youtube-button:hover svg {
             display: flex;
             width: 500%; 
             height: 100%;
-            animation: slide 20s ease-in-out infinite;
+            animation: slide 15s ease-in-out infinite;
         }
         .slide {
             flex: 1;
@@ -1297,3 +1231,149 @@ button.youtube-button:hover svg {
             75%, 95% { transform: translateX(-60%); }
             100% { transform: translateX(-80%); }
         }
+
+#vision-mission-values {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.vmcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vmsection-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.vmsection-title h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.vmsection-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+}
+
+.vmv-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.vmv-item {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.vmv-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.05);
+    transform: rotate(-45deg);
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.vmv-item:hover {
+    transform: translateY(-15px) rotateX(10deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.vmv-item:hover::before {
+    background: rgba(255,255,255,0.1);
+}
+
+.vmv-item h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    position: relative;
+    display: inline-block;
+}
+
+.vmv-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.vmv-item:hover h3::after {
+    transform: scaleX(1);
+}
+
+.vmv-item p {
+    color: #34495e;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.values ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.values ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ecf0f1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.values ul li:last-child {
+    border-bottom: none;
+}
+
+.values ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.values ul li:hover {
+    padding-left: 20px;
+    color: #3498db;
+}
+
+.values ul li:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .vmv-container {
+        flex-direction: column;
+    }
+}

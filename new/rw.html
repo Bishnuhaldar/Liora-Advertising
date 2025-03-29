@@ -2,82 +2,167 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Page with Image Slider</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; overflow-x: hidden; }
-        .hero-slider {
-            width: 100vw;
-            height: 100vh;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #vision-mission-values {
+            background: linear-gradient(135deg, #f0f3f7 0%, #e1e6eb 100%);
+            padding: 80px 0;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: #000000;
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #0070BA;
+        }
+
+        .vmv-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .vmv-item {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
         }
-        .slider-wrapper {
-            display: flex;
-            width: 500%; /* 5 images */
-            height: 100%;
-            animation: slide 20s ease-in-out infinite;
+
+        .vision {
+            background: linear-gradient(135deg, #E6F2FF 0%, #B3D9FF 100%);
         }
-        .slide {
-            flex: 1;
-            position: relative;
-            background-size: cover;
-            background-position: center;
+
+        .mission {
+            background: linear-gradient(135deg, #E6FFE6 0%, #B3FFB3 100%);
         }
-        .slide-content {
+
+        .values {
+            background: linear-gradient(135deg, #FFF0E6 0%, #FFD1B3 100%);
+        }
+
+        .vmv-item::before {
+            content: '';
             position: absolute;
-            bottom: 10%;
-            left: 5%;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #0070BA;
         }
-        .slide-content h1 { font-size: 3rem; font-weight: bold; }
-        .slide-content p { font-size: 1.5rem; }
-        
-        @keyframes slide {
-            0%, 20% { transform: translateX(0%); }
-            25%, 45% { transform: translateX(-20%); }
-            50%, 70% { transform: translateX(-40%); }
-            75%, 95% { transform: translateX(-60%); }
-            100% { transform: translateX(-80%); }
+
+        .vmv-item h3 {
+            color: #000000;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .vmv-item h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #0070BA;
+        }
+
+        .vmv-item p {
+            color: #333333;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .values ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .values ul li {
+            padding: 10px;
+            border-bottom: 1px solid rgba(0,112,186,0.2);
+            color: #000000;
+            transition: all 0.3s ease;
+        }
+
+        .values ul li:last-child {
+            border-bottom: none;
+        }
+
+        .values ul li:hover {
+            background-color: #0070BA;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .vmv-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="hero-slider">
-        <div class="slider-wrapper">
-            <div class="slide" style="background-image: url('img/exhibition-stand-2.jpg');">
-                <div class="slide-content">
-                    <h1>Welcome to Our World</h1>
-                    <p>Experience innovation like never before</p>
-                </div>
+    <section id="vision-mission-values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vision, Mission & Values</h2>
             </div>
-            <div class="slide" style="background-image: url('img/exhibition-stand-3.jpg');">
-                <div class="slide-content">
-                    <h1>Explore the Possibilities</h1>
-                    <p>Unleash your potential with us</p>
+            <div class="vmv-container">
+                <div class="vmv-item vision">
+                    <h3>Our Vision</h3>
+                    <p>To be the leading provider of innovative and impactful advertising solutions that transform brands and drive business success.</p>
                 </div>
-            </div>
-            <div class="slide" style="background-image: url('img/Warping-Cars-1.jpg');">
-                <div class="slide-content">
-                    <h1>Innovate and Inspire</h1>
-                    <p>Pioneering the future together</p>
+                <div class="vmv-item mission">
+                    <h3>Our Mission</h3>
+                    <p>To deliver exceptional advertising services that exceed client expectations through creativity, quality, and dedication.</p>
                 </div>
-            </div>
-            <div class="slide" style="background-image: url('img/exhibition-stand-1.jpg');">
-                <div class="slide-content">
-                    <h1>Discover New Horizons</h1>
-                    <p>Transforming dreams into reality</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('img/exhibition-stand-2.jpg');">
-                <div class="slide-content">
-                    <h1>Join the Revolution</h1>
-                    <p>Be part of something extraordinary</p>
+                <div class="vmv-item values">
+                    <h3>Our Values</h3>
+                    <ul>
+                        <li>Innovation</li>
+                        <li>Quality</li>
+                        <li>Integrity</li>
+                        <li>Customer Focus</li>
+                        <li>Teamwork</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>
