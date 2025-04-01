@@ -77,7 +77,7 @@ header .nav-links li {
 }
 
 header .nav-links a {
-    font-size: 1.2rem; /* Adjust font size */
+    font-size: 1rem; /* Adjust font size */
     font-weight: bold; /* Make it bold */
     text-transform: uppercase; /* Uppercase for a modern look */
     text-decoration: none;
@@ -85,19 +85,54 @@ header .nav-links a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Makes the gradient visible */
     transition: all 0.3s ease;
-    padding: 0.5rem 1rem; /* Add padding for button-like appearance */
+    padding: 0.5rem 1rem; 
     border: 2px solid transparent;
     border-radius: 5px;
     position: relative;
 }
 
+/* Animated gradient underline effect */
+header .nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff, #6c5ce7, #00d2d3);
+    background-size: 200% auto;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+header .nav-links a:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 header .nav-links a:hover {
-    color: white; /* Change text color on hover */
-    background: linear-gradient(90deg, #2d3a8c, #007bff); /* Reverse gradient on hover */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: translateY(-3px); /* Add a slight lift effect */
-    border: 2px solid #007bff; /* Add a border on hover */
+    transform: translateY(-2px);
+    color: #007bff;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Active link style */
+header .nav-links a.active {
+    color: #007bff;
+}
+
+header .nav-links a.active::before {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 nav {
@@ -131,27 +166,49 @@ nav {
 }
 
 .nav-links a {
-    font-size: 1.2rem; /* Adjust font size */
-    font-weight: bold; /* Make it bold */
-    text-transform: uppercase; /* Uppercase for a modern look */
+    font-size: 1.1rem; /* Slightly smaller for a more modern look */
+    font-weight: 600; /* Semi-bold instead of bold */
+    font-family: 'Poppins', sans-serif; /* Using your site's main font */
+    letter-spacing: 1px; /* Add letter spacing for a premium look */
+    text-transform: uppercase;
     text-decoration: none;
-    background: linear-gradient(90deg, #007bff, #2d3a8c); /* Gradient text effect */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the gradient visible */
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem; /* Add padding for button-like appearance */
-    border: 2px solid transparent;
-    border-radius: 5px;
+    color: #333; /* Default color */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother transition */
+    padding: 0.6rem 1rem;
+    border: none;
     position: relative;
+    z-index: 1;
+}
+
+/* Cool underline effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #007bff, #2d3a8c);
+    transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: -1;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
-    color: white; /* Change text color on hover */
-    background: linear-gradient(90deg, #2d3a8c, #007bff); /* Reverse gradient on hover */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: translateY(-3px); /* Add a slight lift effect */
-    border: 2px solid #007bff; /* Add a border on hover */
+    transform: translateY(-2px);
+    color: #007bff;
+}
+
+/* Active link style */
+.nav-links a.active {
+    color: #007bff;
+}
+
+.nav-links a.active::after {
+    width: 100%;
 }
 
 /* Mobile Navigation */
@@ -1226,8 +1283,20 @@ button.youtube-button:hover svg {
     
     .nav-links a {
         display: block;
-        padding: 12px 20px;
-        font-size: 1.2rem;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .nav-links a::after {
+        display: none; /* Disable the underline effect on mobile */
+    }
+    
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.1);
+        transform: none;
     }
     
     .hero-content, 
@@ -1637,3 +1706,80 @@ button.youtube-button:hover svg {
     line-height: 1; /* Ensures proper alignment */
 }
 
+/* Who We Are Section */
+.who-we-are-section {
+    background: #00274d; /* Dark blue background */
+    color: #ffffff; /* White text for contrast */
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.who-we-are-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+.who-we-are-text {
+    flex: 1 1 60%;
+    text-align: left;
+}
+
+.who-we-are-text h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4fd1c5; /* Light teal for emphasis */
+}
+
+.who-we-are-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #e2e8f0; /* Light gray for readability */
+}
+
+.who-we-are-stats {
+    flex: 1 1 40%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: #4fd1c5; /* Light teal for consistency */
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: #e2e8f0; /* Light gray for readability */
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .who-we-are-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .who-we-are-text {
+        text-align: center;
+    }
+}
