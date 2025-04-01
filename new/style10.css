@@ -378,14 +378,36 @@ section {
     gap: clamp(1rem, 3vw, 2rem);
 }
 
+/* Update these styles for service box animations coming from bottom */
 .service-card {
     cursor: pointer;
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.6s ease;
     height: 100%;
+    opacity: 0;
+    transform: translateY(80px); /* Start more from below */
+}
+
+.service-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add staggered delay for each card */
+.service-card:nth-child(1) { transition-delay: 0.1s; }
+.service-card:nth-child(2) { transition-delay: 0.2s; }
+.service-card:nth-child(3) { transition-delay: 0.3s; }
+.service-card:nth-child(4) { transition-delay: 0.4s; }
+.service-card:nth-child(5) { transition-delay: 0.5s; }
+.service-card:nth-child(6) { transition-delay: 0.6s; }
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .service-card h3 {
@@ -396,9 +418,11 @@ section {
     font-weight: 400;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
+.service-card.animate {
+    opacity: 1;
+    transform: translateY(0);
 }
+
 
 .service-image {
     height: 200px;
@@ -1492,58 +1516,62 @@ button.youtube-button:hover svg {
             100% { transform: translateX(-80%); }
         }
 
+/* Enhanced Vision, Mission, Values Section */
 #vision-mission-values {
     background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
     padding: 80px 0;
     font-family: 'Poppins', Arial, sans-serif;
 }
 
-.vmcontainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.vmsection-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.vmsection-title h2 {
-    color: #2c3e50;
-    font-size: 2.5rem;
-    font-weight: 600;
-    position: relative;
-    display: inline-block;
-}
-
-.vmsection-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, #3498db, #2ecc71);
-}
-
 .vmv-container {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .vmv-item {
     flex: 1;
     background: white;
     border-radius: 15px;
-    padding: 35px;
+    padding: 20px; /* Reduced from 25px for tighter fit */
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
     perspective: 1000px;
+}
+
+
+/* Improved styles for the images */
+.vmv-image {
+    height: 180px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px; /* Reduced from 20px */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Removing the colored overlay */
+.vmv-image::before {
+    content: none;
+}
+
+.vmv-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    display: block; /* Ensures no extra space below image */
+}
+
+.vmv-item:hover .vmv-image img {
+    transform: scale(1.05);
 }
 
 .vmv-item::before {
@@ -1560,47 +1588,60 @@ button.youtube-button:hover svg {
 }
 
 .vmv-item:hover {
-    transform: translateY(-15px) rotateX(10deg) rotateY(5deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .vmv-item:hover::before {
     background: rgba(255,255,255,0.1);
 }
 
+/* More elegant title styling */
 .vmv-item h3 {
     color: #2c3e50;
-    margin-bottom: 20px;
+    margin: 10px 0; /* Reduced from 15px 0 */
     font-size: 1.6rem;
     position: relative;
     display: inline-block;
+    z-index: 2;
+    font-weight: 600;
 }
 
 .vmv-item h3::after {
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 70%;
     height: 3px;
     background: linear-gradient(to right, #3498db, #2ecc71);
-    transform: scaleX(0);
     transition: transform 0.3s ease;
 }
 
 .vmv-item:hover h3::after {
-    transform: scaleX(1);
+    transform: translateX(-50%) scaleX(1);
 }
 
 .vmv-item p {
     color: #34495e;
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced from 20px */
+    z-index: 2;
+    position: relative;
+}
+/* Remove custom colored gradients for each card */
+.vmv-item.vision .vmv-image::before,
+.vmv-item.mission .vmv-image::before,
+.vmv-item.values .vmv-image::before {
+    background: none;
 }
 
 .values ul {
     list-style-type: none;
     padding: 0;
+    z-index: 2;
+    position: relative;
 }
 
 .values ul li {
@@ -1635,6 +1676,10 @@ button.youtube-button:hover svg {
 @media (max-width: 768px) {
     .vmv-container {
         flex-direction: column;
+    }
+    
+    .vmv-image {
+        height: 160px;
     }
 }
 
@@ -1706,11 +1751,11 @@ button.youtube-button:hover svg {
     line-height: 1; /* Ensures proper alignment */
 }
 
-/* Who We Are Section */
+/* Who We Are Section - Updated for reduced height */
 .who-we-are-section {
     background: #00274d; /* Dark blue background */
     color: #ffffff; /* White text for contrast */
-    padding: 80px 20px;
+    padding: 40px 20px; /* Reduced padding from 80px to 40px */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -1718,7 +1763,7 @@ button.youtube-button:hover svg {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 30px;
+    gap: 20px; /* Reduced gap from 30px to 20px */
 }
 
 .who-we-are-text {
@@ -1727,49 +1772,54 @@ button.youtube-button:hover svg {
 }
 
 .who-we-are-text h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #4fd1c5; /* Light teal for emphasis */
+    font-size: 1.8rem; /* Reduced from 2rem */
+    margin-bottom: 10px; /* Reduced from 20px */
+    color: #4fd1c5;
 }
 
 .who-we-are-text p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: #e2e8f0; /* Light gray for readability */
+    font-size: 1rem; /* Reduced from 1.2rem */
+    line-height: 1.5; /* Reduced line height from 1.8 */
+    margin-bottom: 15px; /* Reduced from 20px */
+    color: #e2e8f0;
 }
 
 .who-we-are-stats {
     flex: 1 1 40%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Reduced min width from 150px to 120px */
+    gap: 15px; /* Reduced from 20px */
     text-align: center;
 }
 
 .stat-item {
-    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white for contrast */
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px; /* Reduced from 20px */
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px); /* Reduced from -10px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Reduced shadow */
 }
 
 .stat-item h3 {
-    font-size: 2.5rem;
-    color: #4fd1c5; /* Light teal for consistency */
-    margin-bottom: 10px;
+    font-size: 2rem; /* Reduced from 2.5rem */
+    color: #4fd1c5;
+    margin-bottom: 5px; /* Reduced from 10px */
 }
 
 .stat-item p {
-    font-size: 1rem;
-    color: #e2e8f0; /* Light gray for readability */
+    font-size: 0.9rem; /* Reduced from 1rem */
+    color: #e2e8f0;
     opacity: 0.9;
+}
+
+/* Additional adjustment for section title in Who We Are section */
+.who-we-are-section .section-title {
+    margin-bottom: 20px; /* Reduced from default 30px */
 }
 
 /* Responsive Design */
@@ -1781,5 +1831,124 @@ button.youtube-button:hover svg {
 
     .who-we-are-text {
         text-align: center;
+    }
+}
+
+/* Add to the end of your style10.css file */
+/* Other Services Popup Styling */
+.other-services .service-item {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.other-services .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#other-service-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+#other-service-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.other-service-popup-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#other-service-popup.active .other-service-popup-content {
+    transform: scale(1);
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.close-popup:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.popup-service-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.popup-service-image img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+
+.popup-service-details {
+    padding: 20px;
+}
+
+.popup-service-details h3 {
+    color: #004080;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.popup-service-details p {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .popup-service-image {
+        max-height: 220px;
+    }
+    
+    .popup-service-image img {
+        max-height: 220px;
     }
 }
