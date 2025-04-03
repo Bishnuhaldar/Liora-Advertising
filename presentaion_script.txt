@@ -1,0 +1,42 @@
+Presentation Script for Streamlit Application
+
+[Slide 1: Introduction]
+
+Good [morning/afternoon], everyone! Thank you for joining me today. I’m excited to present our new Streamlit application, which provides valuable insights into our solution pipeline and blob access. This tool is designed to enhance our data analysis capabilities and streamline our decision-making processes.
+
+[Slide 2: Overview of the Application]
+
+Let’s start with an overview of the application. The application is divided into two main sections: the Solution Pipeline and Blob Access. Each section is designed to provide specific insights and functionalities that cater to our business needs.
+
+[Slide 3: Solution Pipeline]
+
+In the Solution Pipeline section, we can select an analysis period from options like the last 6 hours, 24 hours, 2 days, 10 days, or 31 days. This flexibility allows us to focus on the most relevant data for our current needs.
+
+Once we select a period, the application filters the data accordingly and presents a summary of the solution pipeline. If there are logs available, we can dive deeper into the data by selecting categories such as Country Source ID, Scope, or Solution Name.
+
+[Slide 4: Data Visualization]
+
+The application provides a visual representation of the data through interactive charts. For instance, we can see the status of our solution pipelines categorized by completed, failed, and canceled tasks. This visualization helps us quickly identify trends and areas that may require our attention.
+
+Additionally, we can view detailed information about each category, including failure percentages, which are crucial for understanding our operational efficiency.
+
+[Slide 5: AI-Generated Summaries]
+
+One of the standout features of our application is the AI-generated summary of the solution pipeline. After analyzing the selected data, the application generates a concise summary that highlights key insights. This feature saves us time and ensures we focus on the most critical information.
+
+[Slide 6: All-Time Data Analysis]
+
+In addition to the time-bound analysis, we also have an all-time data summary. This section provides a comprehensive view of our solution pipeline performance over time, allowing us to identify long-term trends and patterns.
+
+The line chart displays the refresh status over time, giving us a clear picture of our operational performance.
+
+[Slide 7: Blob Access]
+
+Now, let’s move on to the Blob Access section. This part of the application allows us to monitor IP whitelisting for our resources. We can easily identify accounts with no whitelist and take necessary actions to ensure compliance and security.
+
+The application provides filters for selecting specific country source IDs and resource group names, making it easier to manage our data access policies.
+
+[Slide 8: Conclusion]
+
+In conclusion, this Streamlit application is a powerful tool that enhances our ability to analyze and visualize data related to our solution pipeline and blob access. It empowers us to make informed decisions based on real-time insights and historical data.
+
