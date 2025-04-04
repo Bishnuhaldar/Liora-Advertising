@@ -246,6 +246,23 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 // end of other services popup
 
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    // Toggle navbar visibility
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    // Close navbar when a link is clicked
+    navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+});
 
 // Apply to multiple elements
 handlePopup('vehicle-branding-preview', 'vehicle-branding-popup', '.close-popup');

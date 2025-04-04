@@ -1879,3 +1879,141 @@ footer {
     height: 100%;
     
 }
+
+/* Hide the menu toggle button on larger screens */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    z-index: 101;
+}
+
+/* Show the menu toggle button on smaller screens */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background: #3674B5;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Adjust the navigation menu for mobile */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%; /* Start off-screen to the right */
+        flex-direction: column;
+        background: #ffffff; /* Change to white for better contrast */
+        width: 80%; /* Restrict width to 80% of the screen */
+        text-align: center;
+        transition: 0.3s ease-in-out; /* Smooth transition */
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        z-index: 1000;
+        border-radius: 10px 0 0 10px; /* Add rounded corners */
+    }
+
+    .nav-links.active {
+        right: 0; /* Slide in from the right */
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        color: #333; /* Ensure text color contrasts with the background */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 80%;
+        margin: 0 auto;
+        background: #f5f5f5; /* Light background for better visibility */
+        border-radius: 5px; /* Add rounded corners to buttons */
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover {
+        background: #3674B5; /* Highlight color on hover */
+        color: #fff; /* White text for better contrast */
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        z-index: 101;
+    }
+}
+
+/* Adjust the navigation menu for mobile */
+@media (max-width: 992px) {
+    .nav-links li {
+        margin: 0.5rem 0; /* Reduced gap between buttons */
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 8px 16px; /* Reduced padding for smaller buttons */
+        font-size: 1rem; /* Adjust font size if needed */
+        color: #333; /* Ensure text color contrasts with the background */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        width: 80%;
+        margin: 0 auto;
+        background: #f5f5f5; /* Light background for better visibility */
+        border-radius: 5px; /* Add rounded corners to buttons */
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover {
+        background: #3674B5; /* Highlight color on hover */
+        color: #fff; /* White text for better contrast */
+    }
+}
