@@ -931,7 +931,7 @@ footer {
 
 .service-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
     gap: clamp(10px, 2vw, 15px);
     margin-bottom: 25px;
 }
@@ -1275,163 +1275,6 @@ button.youtube-button:hover svg {
     bottom: 0;
 }
 
-/* Improved Mobile Navigation */
-@media (max-width: 992px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: -100%;
-        flex-direction: column;
-        background: #3674B5;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-        height: calc(100vh - 60px);
-        overflow-y: auto;
-        z-index: 1000;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links li {
-        margin: 1rem 0;
-    }
-    
-    .nav-links a {
-        display: block;
-        padding: 10px 20px;
-        font-size: 1.1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        width: 80%;
-        margin: 0 auto;
-    }
-    
-    .nav-links a::after {
-        display: none; /* Disable the underline effect on mobile */
-    }
-    
-    .nav-links a:hover {
-        background: rgba(255,255,255,0.1);
-        transform: none;
-    }
-    
-    .hero-content, 
-    .hero-img {
-        max-width: 100%;
-        flex: 1 1 100%;
-    }
-    
-    .hero {
-        flex-direction: column;
-        padding-top: 80px;
-    }
-    
-    .btn {
-        margin-left: clamp(1rem, 5%, 50px);
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-    .service-list,
-    .image-gallery {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-        text-align: center;
-        padding-left: 0;
-    }
-    
-    .hero p {
-        text-align: center;
-        padding-left: 0;
-    }
-    
-    .btn {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        width: 80%;
-    }
-    
-    .section-title h2 {
-        font-size: 1.5rem;
-    }
-    
-    .portfolio-item {
-        height: 200px;
-    }
-    
-    .footer-links {
-        margin-left: 0;
-    }
-    
-    .gallery-image-container {
-        height: 200px;
-    }
-}
-
-/* Medium Devices */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .services-grid,
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Large Devices */
-@media (min-width: 1025px) {
-    .container {
-        padding: 0 2rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-    } 
-    
-    .portfolio-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Fix for YouTube popup on mobile */
-@media (max-width: 767px) {
-    .popup-content {
-        width: 95%;
-        aspect-ratio: 16/9;
-    }
-    
-    .popup-close {
-        top: -40px;
-        right: 0;
-    }
-}
-
-.slide-content p {
-    margin: 5px 0 0;
-    font-size: 1.2em;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-}
-
 .clients-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -1447,7 +1290,7 @@ button.youtube-button:hover svg {
 }
 .client-logos {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 30px;
     align-items: center;
 }
@@ -1459,7 +1302,7 @@ button.youtube-button:hover svg {
 }
 .client-logo img {
     max-width: 100%;
-    max-height: 100px;
+    max-height: 80px;
     object-fit: contain;
     transition: all 0.5s ease;
     /* filter: grayscale(100%); */
@@ -1951,4 +1794,161 @@ button.youtube-button:hover svg {
     .popup-service-image img {
         max-height: 220px;
     }
+}
+
+/* Improved Mobile Navigation */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background: #3674B5;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.1);
+        transform: none;
+    }
+    
+    .hero-content, 
+    .hero-img {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+    
+    .hero {
+        flex-direction: column;
+        padding-top: 80px;
+    }
+    
+    .btn {
+        margin-left: clamp(1rem, 5%, 50px);
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .service-list,
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .hero p {
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .btn {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 80%;
+    }
+    
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .portfolio-item {
+        height: 200px;
+    }
+    
+    .footer-links {
+        margin-left: 0;
+    }
+    
+    .gallery-image-container {
+        height: 200px;
+    }
+}
+
+/* Medium Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Devices */
+@media (min-width: 1025px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    } 
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Fix for YouTube popup on mobile */
+@media (max-width: 767px) {
+    .popup-content {
+        width: 95%;
+        aspect-ratio: 16/9;
+    }
+    
+    .popup-close {
+        top: -40px;
+        right: 0;
+    }
+}
+
+.slide-content p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    
 }
