@@ -1,9 +1,0 @@
-Flask
-yfinance
-requests
-beautifulsoup4
-numpy
-scikit-learn
-google-generativeai
-streamlit
-boto3
