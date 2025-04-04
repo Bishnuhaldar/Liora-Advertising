@@ -271,6 +271,8 @@ text-align: center;
 
 .slides-content h1 {
     margin: 0;
+    color: yellow;
+    opacity: 0.7;
     font-size: 2em;
     /* word-spacing: 3px; */
     font-weight: bolder;
@@ -279,6 +281,7 @@ text-align: center;
 .slides-content p {
     margin: 5px 0 0;
     font-size: 1em;
+    font-weight: 600;
 } */
 
 /* .slides img {
@@ -1110,82 +1113,6 @@ footer {
     line-height: 1;
 }
 
-/* YouTube Button */
-button.youtube-button {
-    font-family: inherit;
-    font-size: clamp(14px, 2vw, 18px);
-    background: linear-gradient(to bottom, #ff0000 0%, #ff5050 100%);
-    color: white;
-    padding: 0.8em 1.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s;
-    cursor: pointer;
-}
-
-button.youtube-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-button.youtube-button:active {
-    transform: scale(0.95);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-button.youtube-button span {
-    display: block;
-    margin-left: 0.4em;
-    transition: all 0.3s;
-}
-
-button.youtube-button svg {
-    width: clamp(16px, 2vw, 18px);
-    height: clamp(16px, 2vw, 18px);
-    fill: white;
-    transition: all 0.3s;
-}
-
-button.youtube-button .svg-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: clamp(25px, 4vw, 30px);
-    height: clamp(25px, 4vw, 30px);
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin-right: 0.5em;
-    transition: all 0.3s;
-}
-
-button.youtube-button:hover .svg-wrapper {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-button.youtube-button:hover svg {
-    transform: rotate(45deg);
-}
-
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.button-container .btn,
-.button-container .youtube-button {
-    flex: 1 1 200px;
-    margin: 0;
-    text-align: center;
-}
 
 /* YouTube Popup */
 .popup-overlay {
