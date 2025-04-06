@@ -1,0 +1,12 @@
+<!-- Mobile Image Popup -->
+<div class="mobile-image-popup" id="mobile-image-popup">
+    <button class="close-popup" id="close-mobile-popup">&times;</button>
+    <div class="popup-content">
+        <img src="img/Vehicle_branding.jpg" alt="Vehicle Branding" class="popup-image">
+        <img src="img/Floor_Sticker_Branding.jpg" alt="Floor Sticker Branding" class="popup-image">
+        <img src="img/Wall_Sticker_Branding.jpg" alt="Wall Sticker Branding" class="popup-image">
+        <img src="img/Exhibition_Stands.jpg" alt="Exhibition Stands" class="popup-image">
+        <img src="img/pop_up.jpg" alt="Pop Up & Roll Up Stands" class="popup-image">
+        <img src="img/Signage_Solutions.jpg" alt="Signage Solutions" class="popup-image">
+    </div>
+</div>
