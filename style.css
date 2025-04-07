@@ -1571,7 +1571,7 @@ footer {
     line-height: 1; /* Ensures proper alignment */
 }
 
-/* Who We Are Section - Updated for reduced height */
+/* Who We Are Section - Enhanced responsive version */
 .who-we-are-section {
     background: #00274d; /* Dark blue background */
     color: #ffffff; /* White text for contrast */
@@ -1584,6 +1584,8 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     gap: 20px; /* Reduced gap from 30px to 20px */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .who-we-are-text {
@@ -1642,15 +1644,83 @@ footer {
     margin-bottom: 20px; /* Reduced from default 30px */
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
+@media (max-width: 991px) {
+    .who-we-are-content {
+        gap: 30px;
+    }
+    
+    .who-we-are-text {
+        flex: 1 1 100%;
+    }
+    
+    .who-we-are-stats {
+        flex: 1 1 100%;
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
 @media (max-width: 768px) {
+    .who-we-are-section {
+        padding: 30px 15px; /* Further reduce padding on mobile */
+    }
+    
     .who-we-are-content {
         flex-direction: column;
         text-align: center;
+        gap: 25px;
     }
 
     .who-we-are-text {
         text-align: center;
+    }
+    
+    .who-we-are-text h3 {
+        font-size: 1.5rem; /* Smaller font on mobile */
+    }
+    
+    .who-we-are-text p {
+        font-size: 0.95rem; /* Slightly smaller text on mobile */
+        padding: 0 5px;
+    }
+    
+    .who-we-are-stats {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+        gap: 10px; /* Tighter gap on mobile */
+    }
+    
+    .stat-item {
+        padding: 10px; /* Less padding on mobile */
+    }
+    
+    .stat-item h3 {
+        font-size: 1.8rem; /* Smaller numbers on mobile */
+    }
+    
+    .stat-item p {
+        font-size: 0.8rem; /* Smaller labels on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .who-we-are-section {
+        padding: 25px 10px; /* Minimal padding on small phones */
+    }
+    
+    .who-we-are-stats {
+        grid-template-columns: repeat(2, 1fr); /* Keep two columns but make them smaller */
+    }
+    
+    .stat-item h3 {
+        font-size: 1.5rem; /* Even smaller numbers on small phones */
+    }
+    
+    .stat-item p {
+        font-size: 0.75rem; /* Smallest labels on small phones */
+    }
+    
+    .who-we-are-section .section-title h2 {
+        font-size: 1.8rem; /* Smaller title on small phones */
     }
 }
 
