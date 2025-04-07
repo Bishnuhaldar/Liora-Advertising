@@ -1115,6 +1115,7 @@ footer {
 
 
 /* YouTube Popup */
+/* YouTube Popup */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -1130,6 +1131,55 @@ footer {
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     backdrop-filter: blur(5px);
+    overflow: auto; /* Allow scrolling if content exceeds viewport */
+    padding: 15px; /* Add some padding around the edges */
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .popup-overlay {
+        padding: 10px; /* Smaller padding on mobile */
+    }
+    
+    .branding-module {
+        width: 100%; /* Make sure it fits mobile width */
+        max-height: 90vh; /* Limit height to prevent overflow */
+        overflow-y: auto; /* Allow vertical scrolling if needed */
+    }
+    
+    .branding-header {
+        padding: 8px; /* Smaller padding */
+    }
+    
+    .main-header {
+        font-size: clamp(1.2rem, 5vw, 1.5rem); /* Responsive font size */
+    }
+    
+    .branding-content {
+        padding: 10px; /* Reduce padding on mobile */
+    }
+    
+    .image-gallery {
+        grid-template-columns: 1fr; /* Stack images on mobile */
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    .popup-overlay {
+        padding: 5px; /* Even smaller padding for tiny screens */
+    }
+    
+    .branding-module {
+        border-radius: 8px; /* Smaller border radius */
+    }
+    
+    .close-popup {
+        top: 5px;
+        right: 5px;
+        width: 28px;
+        height: 28px;
+    }
 }
 
 .popup-overlay.active {
